@@ -106,3 +106,5 @@ const createAdvert = function () {
 };
 
 const adverts = Array.from({length: ADVERT_COUNT}, createAdvert);
+
+adverts();
