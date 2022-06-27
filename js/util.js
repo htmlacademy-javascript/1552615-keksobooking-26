@@ -37,4 +37,12 @@ const getStringFromUniqueElements = (arr) => {
   return Array.from(new Set(randomLengthArray)).join(', ');
 };
 
-export {getRandomInt, getRandomFloat, getRandomAddress, getRandomArrayElement, getStringFromUniqueElements};
+const getEqualInObj = (value, obj) => {
+  for (const i in obj) {
+    if (i === value) {
+      return obj[i];
+    }
+  }
+};
+
+export {getRandomInt, getRandomFloat, getRandomAddress, getRandomArrayElement, getStringFromUniqueElements, getEqualInObj};
