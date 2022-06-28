@@ -31,6 +31,13 @@ const DESCRIPTIONS = [
   'Яркие оражневые обои на стенах, кислотно зеленого цвета кухня, темно-бордовый пол... Несколько дней в нашей квартире и дурдом вам обеспечен!',
   'Комнаты в скандинавском стиле. И этим все сказано!'
 ];
+const TYPES_TRANSLATE = {
+  palace: 'Дворец',
+  flat: 'Квартира',
+  house: 'Дом',
+  bungalow: 'Бунгало',
+  hotel: 'Отель',
+};
 const ADVERT_COUNT = 10;
 
 const createAuthor = function () {
@@ -68,6 +75,6 @@ const createAdvert = function () {
   };
 };
 
-const adverts = Array.from({length: ADVERT_COUNT}, createAdvert);
+const createOffers = () => Array.from({length: ADVERT_COUNT}, createAdvert);
 
-export {adverts};
+export {createOffers, TYPES_TRANSLATE};
