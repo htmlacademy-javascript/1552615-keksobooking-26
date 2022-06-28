@@ -6,9 +6,8 @@ const cardOfferTemplate = document.querySelector('#card').content.querySelector(
 const offers = createOffers();
 const offerListFragment = document.createDocumentFragment();
 
-offers.forEach(({ author, offer }) => {
+const createOfferCard = (author, offer) => {
   const offerElement = cardOfferTemplate.cloneNode(true);
-
   offerElement.querySelector('.popup__avatar').src = author.avatar;
   offerElement.querySelector('.popup__title').textContent = offer.title;
   offerElement.querySelector('.popup__text--address').textContent = offer.address;
@@ -41,7 +40,11 @@ offers.forEach(({ author, offer }) => {
   offerPhotosList.querySelectorAll('.popup__photo')[0].remove();
   offerPhotosList.appendChild(photoListFragment);
 
-  offerListFragment.appendChild(offerElement);
-});
+  return offerElement;
+};
+
+const offerCard = createOfferCard(offers[0].author, offers[0].offer);
+
+offerListFragment.appendChild(offerCard);
 
 mapCanvas.appendChild(offerListFragment);
