@@ -7,7 +7,7 @@ const mapFilter = document.querySelector('.map__filters');
 const mapFilters = mapFilter.querySelectorAll('.map__filter');
 const mapFeatures = mapFilter.querySelector('.map__features');
 
-const disableForms = () => {
+const disableForm = () => {
   adForm.classList.add('ad-form--disabled');
   adSlider.setAttribute('disabled', 'disabled');
   mapFeatures.setAttribute('disabled', 'disabled');
@@ -16,7 +16,7 @@ const disableForms = () => {
   setDisabledAttr(mapFilters);
 };
 
-const activateForms = () => {
+const activateForm = () => {
   adForm.classList.remove('ad-form--disabled');
   adSlider.removeAttribute('disabled', 'disabled');
   mapFeatures.removeAttribute('disabled', 'disabled');
@@ -25,6 +25,6 @@ const activateForms = () => {
   removeDisabledAttr(mapFilters);
 };
 
-disableForms();
+disableForm();
 
-activateForms();
+activateForm();
