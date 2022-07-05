@@ -45,4 +45,16 @@ const getEqualInObj = (value, obj) => {
   }
 };
 
-export {getRandomInt, getRandomFloat, getRandomAddress, getRandomArrayElement, getStringFromUniqueElements, getEqualInObj};
+const setDisabledAttr = (elements) => {
+  elements.forEach((element) => {
+    element.setAttribute ('disabled', 'disabled');
+  });
+};
+
+const removeDisabledAttr = (elements) => {
+  elements.forEach((element) => {
+    element.removeAttribute ('disabled', 'disabled');
+  });
+};
+
+export {getRandomInt, getRandomFloat, getRandomAddress, getRandomArrayElement, getStringFromUniqueElements, getEqualInObj, setDisabledAttr, removeDisabledAttr};
