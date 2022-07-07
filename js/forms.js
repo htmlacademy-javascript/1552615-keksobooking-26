@@ -28,3 +28,5 @@ const activateForm = () => {
 disableForm();
 
 activateForm();
+
+export {adForm};
