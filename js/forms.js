@@ -1,6 +1,6 @@
 import { setDisabledAttr, removeDisabledAttr } from './util.js';
+import { adForm } from './forms-validate/create-pristine.js';
 
-const adForm = document.querySelector('.ad-form');
 const adFormElements = adForm.querySelectorAll('.ad-form__element');
 const adSlider = adForm.querySelector('.ad-form__slider');
 const mapFilter = document.querySelector('.map__filters');
@@ -28,5 +28,3 @@ const activateForm = () => {
 disableForm();
 
 activateForm();
-
-export {adForm};
