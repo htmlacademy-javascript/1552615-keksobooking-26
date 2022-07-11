@@ -57,4 +57,9 @@ const removeDisabledAttr = (elements) => {
   });
 };
 
-export {getRandomInt, getRandomFloat, getRandomAddress, getRandomArrayElement, getStringFromUniqueElements, getEqualInObj, setDisabledAttr, removeDisabledAttr};
+const getAddressFromMap = (coordinates) => {
+  const {lat, lng} = coordinates;
+  return `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+};
+
+export {getRandomInt, getRandomFloat, getRandomAddress, getRandomArrayElement, getStringFromUniqueElements, getEqualInObj, setDisabledAttr, removeDisabledAttr, getAddressFromMap};

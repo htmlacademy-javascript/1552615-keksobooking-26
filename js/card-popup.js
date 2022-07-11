@@ -1,10 +1,7 @@
-import {createOffers, TYPES_TRANSLATE} from './data.js';
+import { TYPES_TRANSLATE } from './data.js';
 import { getEqualInObj } from './util.js';
 
-const mapCanvas = document.querySelector('#map-canvas');
 const cardOfferTemplate = document.querySelector('#card').content.querySelector('.popup');
-const createdOffers = createOffers();
-const offerListFragment = document.createDocumentFragment();
 
 const createOfferCard = (advertise) => {
   const offerElement = cardOfferTemplate.cloneNode(true);
@@ -43,8 +40,4 @@ const createOfferCard = (advertise) => {
   return offerElement;
 };
 
-const offerCard = createOfferCard(createdOffers[0]);
-
-offerListFragment.appendChild(offerCard);
-
-mapCanvas.appendChild(offerListFragment);
+export { createOfferCard };

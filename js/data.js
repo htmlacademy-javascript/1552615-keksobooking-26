@@ -51,10 +51,11 @@ const createLocation = function() {
   };
 };
 
-const createOffer = function () {
+const createOffer = function (location) {
+  const {lat, lng} = location;
   return {
     title: getRandomArrayElement(TITLES),
-    address: Object.values(createLocation()).join(', '),
+    address: `${lat}, ${lng}`,
     price: getRandomInt (MIN_PRICE, MAX_PRICE),
     type: getRandomArrayElement(TYPES),
     rooms: getRandomInt(MIN_ADDRESS, MAX_ADDRESS),
@@ -68,10 +69,11 @@ const createOffer = function () {
 };
 
 const createAdvert = function () {
+  const location = createLocation();
   return {
     author: createAuthor(),
-    location: createLocation(),
-    offer: createOffer(),
+    location: location,
+    offer: createOffer(location),
   };
 };
 
