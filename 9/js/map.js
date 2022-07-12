@@ -42,19 +42,18 @@ L.tileLayer(
 ).addTo(map);
 
 const mainPin = L.icon ({
-  iconUrl: '../img/main-pin.svg',
+  iconUrl: 'img/main-pin.svg',
   iconSize: MAIN_PIN_SETTINGS.size,
   iconAnchor: MAIN_PIN_SETTINGS.anchor,
 });
 
 const simplePin = L.icon ({
-  iconUrl: '../img/pin.svg',
+  iconUrl: 'img/pin.svg',
   iconSize: SIMPLE_PIN_SETTINGS.size,
   iconAnchor: SIMPLE_PIN_SETTINGS.anchor,
 });
 
 const createMainPin = () => {
-  getAddressFromMap (DEFAULT_MAP_SETTINGS);
   const mainPinMarker = L.marker (
     {
       lat: DEFAULT_MAP_SETTINGS.lat,
@@ -81,7 +80,7 @@ const createAdMarker = (offer) => {
       lng
     },
     {
-      simplePin,
+      icon: simplePin,
     },
   );
   adMarker
