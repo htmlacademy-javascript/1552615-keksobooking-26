@@ -49,7 +49,6 @@ noUiSlider.create(priceSlider, {
   },
 });
 
-
 typeField.addEventListener('change', minPriceChange);
 priceSlider.noUiSlider.on('update', () => {
   priceField.value = priceSlider.noUiSlider.get();
@@ -65,3 +64,9 @@ ${MAX_PRICE} руб.
 `;
 
 pristine.addValidator(priceField, validatePrice, getPriceErrorMessage);
+
+const resetPriceSlider = () => {
+  priceSlider.noUiSlider.reset();
+};
+
+export { resetPriceSlider };
