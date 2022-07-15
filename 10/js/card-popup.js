@@ -31,8 +31,9 @@ const createOfferCard = ({author, offer}) => {
       if (!isNecessary) {
         item.remove();
       }
+    } else {
+      featureList.remove();
     }
-    featureList.remove();
   });
 
   const offerPhotosList = offerElement.querySelector('.popup__photos');
