@@ -1,10 +1,11 @@
 import { disableForm, activateForm } from './ad-form.js';
-import { getAddressFromMap, DEFAULT_MAP_SETTINGS } from './util.js';
+import { getAddressFromMap, DEFAULT_MAP_SETTINGS, debounce } from './util.js';
 import { createOfferCard } from './card-popup.js';
 import { getData } from './api.js';
 import { offersFilter } from './filter.js';
 
 const address = document.querySelector('#address');
+const RERENDER_DELAY = 500;
 
 const MAIN_PIN_SETTINGS = {
   size: [52, 52],
@@ -17,6 +18,7 @@ const SIMPLE_PIN_SETTINGS = {
 };
 const OFFERS_MIN_COUNT = 0;
 const OFFERS_MAX_COUNT = 10;
+
 disableForm();
 
 const activateFormOnMapLoad = () => {
@@ -97,17 +99,17 @@ const createOfferMarkers = () => {
     markerGroup.clearLayers();
     offersFilter(offers)
       .slice(OFFERS_MIN_COUNT, OFFERS_MAX_COUNT)
-      .forEach((offer) => createAdMarker(offer));
+      .forEach((offer) =>createAdMarker(offer));
   });
 };
 
 createOfferMarkers();
 
 document.querySelectorAll('.map__filter').forEach((filter) => {
-  filter.addEventListener('change', createOfferMarkers);
+  filter.addEventListener('change', debounce(createOfferMarkers), RERENDER_DELAY);
 });
 document.querySelectorAll('.map__checkbox').forEach((el) => {
-  el.addEventListener('change', createOfferMarkers);
+  el.addEventListener('change', debounce(createOfferMarkers), RERENDER_DELAY);
 });
 
 export { resetMainPin };
