@@ -6,7 +6,7 @@ const DEFAULT_MAP_SETTINGS = {
 };
 
 //Вовращает случайное целое число из диапазона min, max
-const getRandomInt = function (min, max) {
+const getRandomInt = (min, max) => {
   if (min < 0 || max < 0 || min === max) {
     return undefined;
   }
@@ -18,7 +18,7 @@ const getRandomInt = function (min, max) {
 
 //Вовращает случайное число с плаващющей точкой из диапазона min, max
 //округленное до заданного кол-ва цифр после запятой numbsAfterPoint
-const getRandomFloat = function (min, max, numbsAfterPoint) {
+const getRandomFloat = (min, max, numbsAfterPoint) => {
   if (min < 0 || max < 0 || min === max) {
     return undefined;
   }
@@ -97,6 +97,15 @@ const showAlert = (message) => {
   }, ALERT_SHOW_TIME);
 };
 
+function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
+
 export {
   getRandomInt,
   getRandomFloat,
@@ -109,5 +118,6 @@ export {
   getAddressFromMap,
   showAlert,
   isEscEvent,
-  DEFAULT_MAP_SETTINGS
+  DEFAULT_MAP_SETTINGS,
+  debounce
 };

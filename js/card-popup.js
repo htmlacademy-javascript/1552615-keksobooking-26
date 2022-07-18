@@ -7,9 +7,8 @@ const TYPES_TRANSLATE = {
   bungalow: 'Бунгало',
   hotel: 'Отель',
 };
+
 const cardOfferTemplate = document.querySelector('#card').content.querySelector('.popup');
-
-
 const createOfferCard = ({author, offer}) => {
   const offerElement = cardOfferTemplate.cloneNode(true);
   offerElement.querySelector('.popup__avatar').src = author.avatar;
