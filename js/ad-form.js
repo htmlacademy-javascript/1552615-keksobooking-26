@@ -50,4 +50,4 @@ const resetForms = () => {
   resetFilterForm();
 };
 
-export { disableForm, activateForm, resetForms };
+export { disableForm, activateForm, resetForms, mapFilter };
