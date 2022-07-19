@@ -105,11 +105,8 @@ const createOfferMarkers = () => {
 
 createOfferMarkers();
 
-document.querySelectorAll('.map__filter').forEach((filter) => {
+document.querySelectorAll('.map__filter, .map__checkbox').forEach((filter) => {
   filter.addEventListener('change', debounce(createOfferMarkers), RERENDER_DELAY);
-});
-document.querySelectorAll('.map__checkbox').forEach((el) => {
-  el.addEventListener('change', debounce(createOfferMarkers), RERENDER_DELAY);
 });
 
 export { resetMainPin };
