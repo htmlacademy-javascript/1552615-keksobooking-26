@@ -4,3 +4,4 @@ import './ad-form.js';
 import './map.js';
 import './api.js';
 import './send-data.js';
+import './photos.js';
