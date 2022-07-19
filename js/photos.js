@@ -25,11 +25,11 @@ imagesInput.addEventListener('change', () => {
     const image = document.createElement('img');
     image.height = '70';
     image.width = '70';
-    if (matches) {
-      image.src = URL.createObjectURL(imagesInput.files[0]);
-      imageFragment.appendChild(image);
-      imagePreview.appendChild(imageFragment);
-    }
+    imageFragment.appendChild(image);
+    imagePreview.appendChild(imageFragment);
+  }
+  if (matches) {
+    imagePreview.querySelector('img').src = URL.createObjectURL(imagesInput.files[0]);
   }
 });
 
