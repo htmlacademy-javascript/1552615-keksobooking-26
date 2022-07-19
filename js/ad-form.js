@@ -5,6 +5,8 @@ import './forms-validate/validate-price.js';
 import './forms-validate/validate-rooms.js';
 import './forms-validate/validate-time.js';
 
+const DEFAULT_AVATAR = 'img/muffin-grey.svg';
+
 const adFormElements = adForm.querySelectorAll('.ad-form__element');
 const adSlider = adForm.querySelector('.ad-form__slider');
 const mapFilter = document.querySelector('.map__filters');
@@ -32,6 +34,11 @@ const activateForm = () => {
 const resetAdForm = () => {
   adForm.reset();
   adForm.querySelector('#address').value = getAddressFromMap(DEFAULT_MAP_SETTINGS);
+  adForm.querySelector('.ad-form-header__input, ad-form__input').value = '';
+  adForm.querySelector('.ad-form-header__preview img').src = DEFAULT_AVATAR;
+  if (adForm.querySelector('.ad-form__photo img')) {
+    adForm.querySelector('.ad-form__photo img').remove();
+  }
   const adFormFeatures = adForm.querySelectorAll('features__checkbox');
   adFormFeatures.forEach((feature) => {
     feature.checked = false;
