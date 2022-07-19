@@ -5,31 +5,31 @@ const avatarPreview = document.querySelector('.ad-form-header__preview img');
 const imagesInput = document.querySelector('.ad-form__upload input[type=file]');
 const imagePreview = document.querySelector('.ad-form__photo');
 
+const checkFileType = (inputElement) => {
+  const fileName = inputElement.files[0].name.toLowerCase();
+  return FILE_TYPES.some((it) => fileName.endsWith(it));
+};
+
 avatarInput.addEventListener('change', () => {
-  const file = avatarInput.files[0];
-  const fileName = file.name.toLowerCase();
-
-  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
-
+  const matches = checkFileType(avatarInput);
   if (matches) {
-    avatarPreview.src = URL.createObjectURL(file);
+    avatarPreview.src = URL.createObjectURL(avatarInput.files[0]);
   }
 });
 
 imagesInput.addEventListener('change', () => {
-  const file = imagesInput.files[0];
-  const fileName = file.name.toLowerCase();
+  const matches = checkFileType(imagesInput);
 
-  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
-
-  if (matches) {
+  if (!imagePreview.querySelector('img')) {
     const imageFragment = document.createDocumentFragment();
     const image = document.createElement('img');
-    image.width = '70';
     image.height = '70';
-    image.src = URL.createObjectURL(file);
-    imageFragment.appendChild(image);
-    imagePreview.appendChild(imageFragment);
+    image.width = '70';
+    if (matches) {
+      image.src = URL.createObjectURL(imagesInput.files[0]);
+      imageFragment.appendChild(image);
+      imagePreview.appendChild(imageFragment);
+    }
   }
 });
 
