@@ -4,20 +4,19 @@ import { createOfferCard } from './card-popup.js';
 import { getData } from './api.js';
 import { offersFilter } from './filter.js';
 
-const address = document.querySelector('#address');
 const RERENDER_DELAY = 500;
-
 const MAIN_PIN_SETTINGS = {
   size: [52, 52],
   anchor: [26, 52]
 };
-
 const SIMPLE_PIN_SETTINGS = {
   size: [40, 40],
   anchor: [20, 40]
 };
 const OFFERS_MIN_COUNT = 0;
 const OFFERS_MAX_COUNT = 10;
+
+const address = document.querySelector('#address');
 
 disableForm();
 
