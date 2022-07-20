@@ -8,15 +8,15 @@ const validateTime = () => timeInField.value === timeOutField.value || timeOutFi
 pristine.addValidator(timeInField, validateTime);
 pristine.addValidator(timeOutField, validateTime);
 
-const timeInChange = () => {
+const onTimeInSelectChange = () => {
   timeInField.value = timeOutField.value;
   pristine.validate(timeInField);
 };
 
-const timeOutChange = () => {
+const onTimeOutSelectChange = () => {
   timeOutField.value = timeInField.value;
   pristine.validate(timeOutField);
 };
 
-timeInField.addEventListener('change', timeOutChange);
-timeOutField.addEventListener('change', timeInChange);
+timeInField.addEventListener('change', onTimeOutSelectChange);
+timeOutField.addEventListener('change', onTimeInSelectChange);

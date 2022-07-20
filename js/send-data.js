@@ -1,5 +1,5 @@
 import { sendData } from './api.js';
-import { showSuccessPopup, showErrorPopup } from './form-messages.js';
+import { onSubmitShowErrorPopup, onSubmitShowSuccessPopup } from './form-messages.js';
 import { adForm, pristine } from './forms-validate/create-pristine.js';
 import { resetPriceSlider } from './forms-validate/validate-price.js';
 import { resetMainPin } from './map.js';
@@ -18,12 +18,12 @@ const setFormSubmit = ((onSuccess) => {
         () => {
           onSuccess();
           resetPriceSlider();
-          showSuccessPopup();
+          onSubmitShowSuccessPopup();
           resetMainPin();
           formSubmitButton.disabled = false;
         },
         () => {
-          showErrorPopup();
+          onSubmitShowErrorPopup();
           formSubmitButton.disabled = false;
         },
         new FormData(evt.target),

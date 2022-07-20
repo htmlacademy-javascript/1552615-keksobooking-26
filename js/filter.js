@@ -2,14 +2,14 @@ import { mapFilter } from './ad-form.js';
 
 const PRICE_LIMITS = [10000, 50000];
 
-const typeFilter = (ad) => {
+const filterType = (ad) => {
   if (mapFilter.querySelector('#housing-type').value === 'any') {
     return true;
   }
   return ad.offer.type === mapFilter.querySelector('#housing-type').value;
 };
 
-const priceFilter = (ad) => {
+const filterPrice = (ad) => {
   const priceField = mapFilter.querySelector('#housing-price');
   if (priceField.value === 'any') {
     return true;
@@ -23,21 +23,21 @@ const priceFilter = (ad) => {
   }
 };
 
-const roomsFilter = (ad) => {
+const filterRooms = (ad) => {
   if (mapFilter.querySelector('#housing-rooms').value === 'any') {
     return true;
   }
   return parseInt(ad.offer.rooms, 10) === parseInt(mapFilter.querySelector('#housing-rooms').value, 10);
 };
 
-const guestsFilter = (ad) => {
+const filterGuests = (ad) => {
   if (mapFilter.querySelector('#housing-guests').value === 'any') {
     return true;
   }
   return parseInt(ad.offer.guests, 10) === parseInt(mapFilter.querySelector('#housing-guests').value, 10);
 };
 
-const featureFilter = (ad) => {
+const filterFeature = (ad) => {
   const checkedMapFeatures = mapFilter.querySelectorAll('.map__checkbox:checked');
   if (!checkedMapFeatures) {
     return true;
@@ -51,10 +51,10 @@ const featureFilter = (ad) => {
 };
 
 const offersFilter = (ad) =>
-  ad.filter(typeFilter)
-    .filter(priceFilter)
-    .filter(roomsFilter)
-    .filter(guestsFilter)
-    .filter(featureFilter);
+  ad.filter(filterType)
+    .filter(filterPrice)
+    .filter(filterRooms)
+    .filter(filterGuests)
+    .filter(filterFeature);
 
-export { featureFilter, offersFilter };
+export { offersFilter };

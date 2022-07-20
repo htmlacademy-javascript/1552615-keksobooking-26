@@ -15,7 +15,7 @@ const priceField = adForm.querySelector('#price');
 const priceSlider = adForm.querySelector('.ad-form__slider');
 priceField.value = 0;
 
-const minPriceChange = () => {
+const onTypeSelectChangeMinPrice = () => {
   for (const i in minPriceOptions) {
     if (i === typeOptions[typeField.selectedIndex].text) {
       priceField.placeholder = minPriceOptions[i];
@@ -49,7 +49,7 @@ noUiSlider.create(priceSlider, {
   },
 });
 
-typeField.addEventListener('change', minPriceChange);
+typeField.addEventListener('change', onTypeSelectChangeMinPrice);
 priceSlider.noUiSlider.on('update', () => {
   priceField.value = priceSlider.noUiSlider.get();
 });
